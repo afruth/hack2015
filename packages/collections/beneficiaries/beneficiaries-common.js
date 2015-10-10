@@ -34,7 +34,10 @@ Schemas.BeneficiarySchema = new SimpleSchema({
       afFieldInput: {
         type: "fileUpload",
         collection: "imageStore",
-        accept: 'image/*'
+        accept: 'image/*',
+        onBeforeInsert: function(fileObj) {
+          fileObj.entity = this.template.data._id || '';
+        }
       }
     }
   }
