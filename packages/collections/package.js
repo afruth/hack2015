@@ -33,7 +33,8 @@ Package.onUse(function(api) {
     'resources/resources-common.js',
 
     //methods
-    'users/userMethods.js'
+    'users/userMethods.js',
+    'projects/methods.js'
   ],['client','server']);
 
   api.addFiles([
