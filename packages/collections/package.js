@@ -25,7 +25,9 @@ Package.onUse(function(api) {
   api.addFiles([
     'beneficiaries/publications.js',
     'projects/publications.js',
-    'images/publications.js'
+    'images/publications.js',
+    'projectTypes/publications.js',
+    'projectStates/publications.js'
   ],'server');
 
 
