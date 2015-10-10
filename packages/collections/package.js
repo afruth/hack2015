@@ -12,7 +12,15 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use(['ecmascript','mongo','aldeed:collection2','check', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['client','server']);
+  api.use([
+    'ecmascript',
+    'mongo',
+    'aldeed:collection2',
+    'check',
+    'cfs:standard-packages@0.5.9',
+    'cfs:gridfs@0.0.33',
+    'alanning:roles@1.2.4'
+  ],['client','server']);
 
   api.addFiles([
     'beneficiaries/beneficiaries-common.js',
@@ -23,12 +31,17 @@ Package.onUse(function(api) {
     'projectStates/projectStates-common.js',
     'financingCategs/financingCategories-common.js',
     'resources/resources-common.js'
+
+    //methods
+    'users/userMethods.js'
   ],['client','server']);
 
   api.addFiles([
     'beneficiaries/publications.js',
     'projects/publications.js',
-    'images/publications.js'
+    'images/publications.js',
+    'projectTypes/publications.js',
+    'projectStates/publications.js'
   ],'server');
 
 
