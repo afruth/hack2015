@@ -1,6 +1,10 @@
 DB.ProjectTypes = new Mongo.Collection('projectTypes');
 
 Schemas.ProjectTypeSchema = new SimpleSchema({
-	name: String,
-	label: 'Project Type'
-})
+  projectType :{
+    type: String,
+    label: 'Project Type'
+  }
+});
+
+DB.ProjectTypes.attachSchema(Schemas.ProjectTypeSchema);

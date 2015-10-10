@@ -18,7 +18,8 @@ Package.onUse(function(api) {
     'beneficiaries/beneficiaries-common.js',
     'projects/projects-common.js',
     'donations/donations-common.js',
-    'images/images-common.js'
+    'images/images-common.js',
+    'projectTypes/projectTypes-common.js'
   ],['client','server']);
 
   api.addFiles([

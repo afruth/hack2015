@@ -9,3 +9,7 @@ Meteor.publish('imagesForBeneficiary', function(bid) {
       }
     });
 });
+
+Meteor.publish('images', function() {
+  return DB.ImageStores.find();
+});
