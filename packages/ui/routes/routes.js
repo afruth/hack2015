@@ -10,6 +10,7 @@ Router.route('/projects', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
+    this.subscribe('projectTypes');
     if(this.params.id)
       this.subscribe('project',this.params.id);
   },
@@ -140,7 +141,7 @@ Router.route('/beneficiary/:id?/:op?', {
     if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
       this.subscribe('imagesForBeneficiary', this.params.id);
-    }
+    } 
   },
   action: function () {
     //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
