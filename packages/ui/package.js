@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
 
-  api.use(['iron:router','templating'],'client');
+  api.use(['templating','iron:layout','iron:router'],'client');
 
   api.addFiles('routes/routes.js','client');
 
@@ -22,7 +22,11 @@ Package.onUse(function(api) {
   //views
   api.addFiles([
     'views/frontpage/index.html',
-    'views/frontpage/home.html'
+    'views/frontpage/home.html',
+
+    'views/projects/addProject.html',
+    'views/projects/showProject.html',
+    'views/projects/editProject.html'
   ],'client');
 });
 
