@@ -2,11 +2,11 @@
 
 </head>
 <body>
-  
-  {{> header}}
-
-  {{>yield}}
-
-  {{> footer}}
 
 </body>
+
+<template name="layout">
+    {{> header}}
+    {{> yield}}
+    {{> footer}}
+</template>

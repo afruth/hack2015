@@ -16,7 +16,7 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-iron:router
+iron:router@1.0.12
 accounts-password
 accounts-ui
 aldeed:autoform
@@ -29,3 +29,4 @@ juliancwirko:s-alert
 hack-ui
 collections
 flemay:less-autoprefixer
+iron:layout

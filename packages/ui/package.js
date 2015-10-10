@@ -14,11 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
 
-  api.use([
-    'iron:router',
-    'templating',
-    'semantic:ui'
-    ],'client');
+
+  api.use(['templating','iron:layout','iron:router'],'client');
 
   api.addFiles('routes/routes.js','client');
 
@@ -26,17 +23,41 @@ Package.onUse(function(api) {
   //views
   api.addFiles([
     'views/frontpage/index.html',
-    'views/frontpage/footer.html',
-    'views/frontpage/footer_client.js',
+
     'views/frontpage/header.html',
     'views/frontpage/header_client.js',
     'views/frontpage/main_body.html',
     'views/frontpage/main_body_client.js',
+    'views/frontpage/footer.html',
+    'views/frontpage/footer_client.js',
     'views/frontpage/home.html',
     'views/frontpage/home_client.js',
+
+    'views/projects/addProject.html',
+    'views/projects/showProject.html',
+    'views/projects/editProject.html',
+    'views/projects/listProjects.html',
+
+    'views/donation/donation.html',
+    'views/donation/donation.js',
+
+    'views/user/editUser.html',
+    'views/user/profile.html',
+
+    'views/general/not-authorized.html',
+    'views/general/not-found.html',
+    'views/general/loading.html',
+
+    'views/beneficiary/addBeneficiary.html',
+    'views/beneficiary/showBeneficiary.html',
+    'views/beneficiary/editBeneficiary.html',
+
+    'views/task/addTask.html',
+    'views/task/showTask.html',
+    'views/task/editTask.html'
   ],'client');
 
-  // LESS
+ // LESS
   api.addAssets([
     'views/frontpage/footer.less',
     'views/frontpage/header.less',
