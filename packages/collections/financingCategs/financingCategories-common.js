@@ -1,8 +1,10 @@
 DB.FinancingCategories = new Mongo.Collection('financingCategories');
 
-DB.FinancingCategories = new FinancingCategories({
+Schemas.FinancingCategories = new SimpleSchema({
 	name: {
 		type: String,
 		label: 'Financing category'
 	}
-})
+});
+
+DB.FinancingCategories.attachSchema(Schemas.FinancingCategories);

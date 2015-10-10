@@ -30,7 +30,7 @@ Package.onUse(function(api) {
     'projectTypes/projectTypes-common.js',
     'projectStates/projectStates-common.js',
     'financingCategs/financingCategories-common.js',
-    'resources/resources-common.js'
+    'resources/resources-common.js',
 
     //methods
     'users/userMethods.js'

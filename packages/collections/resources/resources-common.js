@@ -1,8 +1,10 @@
 DB.Resources = new Mongo.Collection('resources');
 
-DB.Resources = new Resources({
+Schemas.Resources = new SimpleSchema({
 	name: {
 		type: String,
 		label: 'Resource'
 	}
 });
+
+DB.Resources.attachSchema(Schemas.Resources);
