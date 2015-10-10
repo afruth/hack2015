@@ -28,10 +28,13 @@ Package.onUse(function(api) {
     'donations/donations-common.js',
     'images/images-common.js',
     'projectTypes/projectTypes-common.js',
-
+    'projectStates/projectStates-common.js',
+    'financingCategs/financingCategories-common.js',
+    'resources/resources-common.js',
 
     //methods
-    'users/userMethods.js'
+    'users/userMethods.js',
+    'projects/methods.js'
   ],['client','server']);
 
   api.addFiles([
@@ -39,7 +42,9 @@ Package.onUse(function(api) {
     'projects/publications.js',
     'images/publications.js',
     'projectTypes/publications.js',
-    'projectStates/publications.js'
+    'projectStates/publications.js',
+    'financingCategs/publications.js',
+    'resources/publications.js'
   ],'server');
 
 

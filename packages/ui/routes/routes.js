@@ -17,8 +17,12 @@ Router.route('/login', function() {
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
     this.subscribe('projectTypes');
+    this.subscribe('projectStates');
+
     if(this.params.id)
       this.subscribe('project',this.params.id);
+    else
+      this.subscribe('images');
   },
   action: function () {
     //render project details or edit project / add project when both edit and id are missing
@@ -175,7 +179,7 @@ Router.route('/beneficiary/:id?/:op?', {
 });
 
 
-Router.route('/lists', function() {
+Router.route('/lists/:list?', function() {
   //edit lists page (project types, project states, project financing categs, resource types)
 
 });
