@@ -27,6 +27,17 @@ Package.onUse(function(api) {
     'views/projects/addProject.html',
     'views/projects/showProject.html',
     'views/projects/editProject.html',
+    'views/projects/listProjects.html',
+
+    'views/donation/donation.html',
+    'views/donation/donation.js',
+
+    'views/user/editUser.html',
+    'views/user/profile.html',
+
+    'views/general/not-authorized.html',
+    'views/general/not-found.html',
+    'views/general/loading.html',
 
     'views/beneficiary/addBeneficiary.html',
     'views/beneficiary/showBeneficiary.html',
@@ -35,7 +46,6 @@ Package.onUse(function(api) {
     'views/task/addTask.html',
     'views/task/showTask.html',
     'views/task/editTask.html'
-
 
 
   ],'client');
