@@ -39,14 +39,29 @@ Schemas.ProjectSchema = new SimpleSchema({
   location: {
     type: Object,
     label: 'Location',
-    optional: true
+    optional: true,
+    autoform: {
+      type: 'map',
+      afFieldInput: {
+        geolocation: true,
+        searchBox: true,
+        height: '400px',
+        width: '50%',
+        zoom: 5,
+        defaultLat:27.858807,
+        defaultLng:84.660645
+      }
+    }
   },
-  "location.$.lat": {
-    type: Number
+  'location.lat': {
+    type: Number,
+    decimal: true
   },
-  "location.$.long": {
-    type: Number
+  'location.lng': {
+    type: Number,
+    decimal: true
   },
+
   beneficiary: {
     type: String,
     label: 'Beneficiary'

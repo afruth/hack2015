@@ -12,6 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
+
   api.use([
     'ecmascript',
     'collections',
@@ -19,10 +20,12 @@ Package.onUse(function(api) {
     'cfs:gridfs@0.0.33',
     'useraccounts:core',
     'useraccounts:semantic-ui',
-    'alanning:roles@1.2.4'
+    'alanning:roles@1.2.4',
+    'yogiben:autoform-map@0.2.0'
   ],['server','client']);
 
   api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui@0.7.1','less'],'client');
+
 
   api.addFiles('routes/routes.js','client');
 
