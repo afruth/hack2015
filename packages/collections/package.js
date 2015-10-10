@@ -12,12 +12,13 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use(['ecmascript','mongo','aldeed:collection2','check'],['client','server']);
+  api.use(['ecmascript','mongo','aldeed:collection2','check', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['client','server']);
 
   api.addFiles([
     'beneficiaries/beneficiaries-common.js',
     'projects/projects-common.js',
-    'donations/donations-common.js'
+    'donations/donations-common.js',
+    'images/images-common.js'
   ],['client','server']);
 
   api.addFiles([
@@ -25,7 +26,7 @@ Package.onUse(function(api) {
   ],'server');
 
 
-  api.export(['DB', 'Schemas'],['client','server']);
+  api.export(['DB', 'Schemas', 'FS'],['client','server']);
 });
 
 Package.onTest(function(api) {
