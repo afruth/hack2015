@@ -12,9 +12,9 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use('ecmascript');
+  api.use(['ecmascript','collections', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9'],'client');
 
   api.addFiles('routes/routes.js','client');
 
@@ -22,11 +22,51 @@ Package.onUse(function(api) {
   //views
   api.addFiles([
     'views/frontpage/index.html',
+
+    'views/frontpage/header.html',
+    'views/frontpage/header_client.js',
+    'views/frontpage/main_body.html',
+    'views/frontpage/main_body_client.js',
+    'views/frontpage/footer.html',
+    'views/frontpage/footer_client.js',
     'views/frontpage/home.html',
+    'views/frontpage/home_client.js',
 
     'views/projects/addProject.html',
     'views/projects/showProject.html',
-    'views/projects/editProject.html'
+    'views/projects/editProject.html',
+    'views/projects/listProjects.html',
+    'views/projects/projectCard.html',
+    'views/projects/projectCard_client.js',
+
+
+    'views/donation/donation.html',
+    'views/donation/donation.js',
+
+    'views/user/editUser.html',
+    'views/user/profile.html',
+
+    'views/general/not-authorized.html',
+    'views/general/not-found.html',
+    'views/general/loading.html',
+
+    'views/beneficiary/addBeneficiary.html',
+    'views/beneficiary/showBeneficiary.html',
+    'views/beneficiary/showBeneficiary.js',
+    'views/beneficiary/editBeneficiary.html',
+    'views/beneficiary/editBeneficiary.js',
+
+    'views/task/addTask.html',
+    'views/task/showTask.html',
+    'views/task/editTask.html'
+  ],'client');
+
+ // LESS
+  api.addAssets([
+    'views/frontpage/footer.less',
+    'views/frontpage/header.less',
+    'views/frontpage/main_body.less',
+    'views/frontpage/home.less',
   ],'client');
 });
 
