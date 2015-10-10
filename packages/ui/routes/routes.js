@@ -10,7 +10,7 @@ Router.route('/projects', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
-    if(this.project.id)
+    if(this.params.id)
       this.subscribe('project',this.params.id);
   },
   action: function () {
