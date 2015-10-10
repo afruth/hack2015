@@ -32,7 +32,7 @@ Schemas.ProjectSchema = new SimpleSchema({
             label: doc.projectType,
             value: doc._id
           }
-        })
+        });
       }
     }
   },
@@ -46,7 +46,7 @@ Schemas.ProjectSchema = new SimpleSchema({
         geolocation: true,
         searchBox: true,
         height: '400px',
-        width: '50%',
+        width: '100%',
         zoom: 5,
         defaultLat:27.858807,
         defaultLng:84.660645
@@ -86,13 +86,13 @@ Schemas.ProjectSchema = new SimpleSchema({
             label: doc.name,
             value: doc._id
           }
-        })
+        });
       }
     }
   },
   visible: {
     type: Boolean,
-    label: 'Visibility'
+    label: 'Hide this project'
   },
   image: {
     type: String,

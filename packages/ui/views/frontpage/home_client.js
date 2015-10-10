@@ -1,3 +1,7 @@
+Meteor.startup(() => {
+  AutoForm.setDefaultTemplate("semanticUI");
+});
+
 Template.home.helpers({
   
   // TODO: returns the organization's description

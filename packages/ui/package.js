@@ -24,7 +24,7 @@ Package.onUse(function(api) {
     'yogiben:autoform-map@0.2.0'
   ],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui@0.7.1','less'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui','less'],'client');
 
 
   api.addFiles('routes/routes.js','client');
@@ -69,7 +69,9 @@ Package.onUse(function(api) {
     'views/general/not-authorized.html',
     'views/general/not-found.html',
     'views/general/loading.html',
+
     'views/user/login.html',
+    'views/user/login.less',
 
     'views/beneficiary/addBeneficiary.html',
     'views/beneficiary/addBeneficiary.css',
@@ -81,7 +83,10 @@ Package.onUse(function(api) {
     'views/frontpage/footer.less',
     'views/frontpage/header.less',
     'views/frontpage/main_body.less',
-    'views/frontpage/home.less'
+    'views/frontpage/home.less',
+
+
+    'ui.js'
   ],'client');
 
 });

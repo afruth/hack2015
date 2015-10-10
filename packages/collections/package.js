@@ -22,6 +22,10 @@ Package.onUse(function(api) {
     'alanning:roles@1.2.4'
   ],['client','server']);
 
+  api.use([
+    'reywood:publish-composite@1.4.2'
+  ],'server')
+
   api.addFiles([
     'beneficiaries/beneficiaries-common.js',
     'projects/projects-common.js',
