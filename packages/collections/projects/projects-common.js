@@ -23,7 +23,18 @@ Schemas.ProjectSchema = new SimpleSchema({
   },
   projType: {
     type: String,
-    label: 'Project Type'
+    label: 'Project Type',
+    autoform: {
+      options: function() {
+        var pTypes = DB.ProjectTypes.find().fetch();
+        return _.map(pTypes, function(doc) {
+          return {
+            label: doc.projectType,
+            value: doc._id
+          }
+        })
+      }
+    }
   },
   location: {
     type: Object,
@@ -42,15 +53,42 @@ Schemas.ProjectSchema = new SimpleSchema({
   },
   tasks: {
     type: [String],
-    label: 'Tasks'
+    label: 'Tasks',
+    optional: true,
+    autoform: {
+      type: "hidden",
+      label: false
+    },
   },
   state: {
     type: String,
-    label: 'State'
+    label: 'State',
+    autoform: {
+      options: function() {
+        var pTypes = DB.ProjectStates.find().fetch();
+        return _.map(pTypes, function(doc) {
+          return {
+            label: doc.name,
+            value: doc._id
+          }
+        })
+      }
+    }
   },
   visible: {
     type: Boolean,
     label: 'Visibility'
+  },
+  image: {
+    type: String,
+    label: 'Project Image',
+    autoform: {
+      afFieldInput: {
+        type: "fileUpload",
+        collection: "imageStore",
+        accept: 'image/*'
+      }
+    }
   }
 });
 
