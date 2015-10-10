@@ -15,7 +15,9 @@ Package.onUse(function(api) {
   api.use(['ecmascript','mongo','aldeed:collection2'],['client','server']);
 
   api.addFiles([
-    'beneficiaries/beneficiaries-common.js'
+    'beneficiaries/beneficiaries-common.js',
+    'projects/projects-common.js',
+    'donations/donations-common.js'
   ],['client','server']);
 
 
