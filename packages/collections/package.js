@@ -25,6 +25,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'beneficiaries/beneficiaries-common.js',
     'projects/projects-common.js',
+    'tasks/tasks-common.js',
     'donations/donations-common.js',
     'images/images-common.js',
     'projectTypes/projectTypes-common.js',
@@ -40,6 +41,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'beneficiaries/publications.js',
     'projects/publications.js',
+    'tasks/publications.js',
     'images/publications.js',
     'projectTypes/publications.js',
     'projectStates/publications.js',

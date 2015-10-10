@@ -94,26 +94,33 @@ Router.route('/user/:id/:op?', {
   }
 });
 
-Router.route('/task/:id?/:op?', {
+Router.route('/tasks/:id?/:op?', {
+
+  waitOn: function () {
+    this.subscribe('resources');
+    this.subscribe('financingCategories');
+    console.log(this.params, "xxxxxxxxxxxxx");
+
+    if(this.params.id)
+      this.subscribe('tasks',this.params.id);
+  },
   action: function () {
-    //render task page / edit task page / add task (when both edit and id are missing)
+    //render tasks page / edit tasks page / add tasks (when both edit and id are missing)
 
     if (this.params.id) {
       if (this.params.op && this.params.op === 'edit') {
         //edit project
         this.render('editTask', {
           data: function () {
-            //return Projects.findOne(this.params.id);
-          },
-          waitOn: function () {
-            //this.subscribe('project',this.params.id);
+            return DB.Tasks.findOne(this.params.id);
           }
+
         });
       } else {
         //show project
         this.render('showTask', {
           data: function () {
-            //return Projects.findOne(this.params.id);
+            return DB.Tasks.findOne(this.params.id);
           }
         });
       }
@@ -121,9 +128,6 @@ Router.route('/task/:id?/:op?', {
       //add project
       this.render('addTask');
     }
-  },
-  waitOn: function () {
-    if (this.params.id) this.subscribe('project',this.params.id);
   }
 });
 
