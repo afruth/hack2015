@@ -27,13 +27,14 @@ Schemas.BeneficiarySchema = new SimpleSchema({
   images: {
     type: [String],
     optional: true,
-    label: 'Images',
+    label: 'Images'
   },
   "images.$": {
     autoform: {
       afFieldInput: {
-        type: "cfs-file",
-        collection: "imageStore"
+        type: "fileUpload",
+        collection: "imageStore",
+        accept: 'image/*'
       }
     }
   }
