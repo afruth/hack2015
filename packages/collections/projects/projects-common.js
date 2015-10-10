@@ -1,4 +1,19 @@
+Schemas = {};
+DB = {};
+
 DB.Projects = new Mongo.Collection('projects');
+
+DB.Projects.allow({
+  insert: function() {
+    return true;
+  },
+  update: function() {
+    return true;
+  },
+  remove: function() {
+    return true;
+  }
+});
 
 Schemas.ProjectSchema = new SimpleSchema({
   name: {

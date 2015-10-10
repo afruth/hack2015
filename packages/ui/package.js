@@ -14,12 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use(['ecmascript','collections'],['server','client']);
 
-<<<<<<< HEAD
   api.use(['templating','iron:layout','iron:router','aldeed:autoform'],'client');
-=======
-
-  api.use(['templating','iron:layout','iron:router'],'client');
->>>>>>> master
 
   api.addFiles('routes/routes.js','client');
 
@@ -41,6 +36,8 @@ Package.onUse(function(api) {
     'views/projects/showProject.html',
     'views/projects/editProject.html',
     'views/projects/listProjects.html',
+    'views/projects/editProject.js',
+
 
     'views/donation/donation.html',
     'views/donation/donation.js',
