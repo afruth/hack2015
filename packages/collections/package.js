@@ -19,7 +19,7 @@ Package.onUse(function(api) {
   ],['client','server']);
 
 
-  api.export([DB, Schemas],['client','server']);
+  api.export(['DB', 'Schemas'],['client','server']);
 });
 
 Package.onTest(function(api) {
