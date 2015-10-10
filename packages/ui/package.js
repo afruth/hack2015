@@ -14,7 +14,12 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use(['ecmascript','collections'],['server','client']);
 
+<<<<<<< HEAD
   api.use(['templating','iron:layout','iron:router','aldeed:autoform'],'client');
+=======
+
+  api.use(['templating','iron:layout','iron:router'],'client');
+>>>>>>> master
 
   api.addFiles('routes/routes.js','client');
 
@@ -22,7 +27,15 @@ Package.onUse(function(api) {
   //views
   api.addFiles([
     'views/frontpage/index.html',
+
+    'views/frontpage/header.html',
+    'views/frontpage/header_client.js',
+    'views/frontpage/main_body.html',
+    'views/frontpage/main_body_client.js',
+    'views/frontpage/footer.html',
+    'views/frontpage/footer_client.js',
     'views/frontpage/home.html',
+    'views/frontpage/home_client.js',
 
     'views/projects/addProject.html',
     'views/projects/showProject.html',
@@ -47,8 +60,14 @@ Package.onUse(function(api) {
     'views/task/addTask.html',
     'views/task/showTask.html',
     'views/task/editTask.html'
+  ],'client');
 
-
+ // LESS
+  api.addAssets([
+    'views/frontpage/footer.less',
+    'views/frontpage/header.less',
+    'views/frontpage/main_body.less',
+    'views/frontpage/home.less',
   ],'client');
 });
 
