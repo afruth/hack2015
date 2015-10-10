@@ -1,1 +1,7 @@
-<template name="showBeneficiary">showBeneficiary</template>
+<template name="showBeneficiary">
+    {{this.name}} | {{this.description}} <br>
+
+    {{#each images}}
+        <img src="{{this.url}}" />
+    {{/each}}
+</template>

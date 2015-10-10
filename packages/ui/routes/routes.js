@@ -137,21 +137,23 @@ Router.route('/update/:id?/:op?', {
 
 Router.route('/beneficiary/:id?/:op?', {
   waitOn: function () {
-    if (this.params.id)
+    if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
+      this.subscribe('imagesForBeneficiary', this.params.id);
+    }
   },
   action: function () {
     //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
     if (this.params.id) {
       if (this.params.op && this.params.op === 'edit') {
-        //edit project
+        //edit beneficiary
         this.render('editBeneficiary', {
           data: function () {
             return DB.Beneficiaries.findOne(this.params.id);
           }
         });
       } else {
-        //show project
+        //show beneficiary
         this.render('showBeneficiary', {
           data: function () {
             return DB.Beneficiaries.findOne(this.params.id);
@@ -159,7 +161,7 @@ Router.route('/beneficiary/:id?/:op?', {
         });
       }
     } else {
-      //add project
+      //add beneficiary
       this.render('addBeneficiary');
     }
   }
