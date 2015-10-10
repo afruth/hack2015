@@ -41,7 +41,7 @@ Router.route('/donation/:id?', function() {
   //render donation page. Id is the project id
 });
 
-Router.route('/me/:_id/:op?', function() {
+Router.route('/me/:id/:op?', function() {
   //render user profile page
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
@@ -55,20 +55,40 @@ Router.route('/me/:_id/:op?', function() {
 
 });
 
-Router.route('/task/:_id?/:op?', function() {
-  //render task page / edit task page / add task (when both edit and id are missing)
+
+Router.route('/task/:id?/:op?', function() {
+  console.log(this.params);
+  //render project details or edit project / add project when both edit and id are missing
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
       //edit project
+      this.render('editTask', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     } else {
       //show project
+      this.render('showTask', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     }
   } else {
     //add project
+    this.render('addTask');
   }
 });
 
-Router.route('/update/:_id?/:op?', function() {
+
+Router.route('/update/:id?/:op?', function() {
   //render update page / edit update / add update (when both edit and id are missing)
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
@@ -81,18 +101,37 @@ Router.route('/update/:_id?/:op?', function() {
   }
 });
 
-Router.route('/beneficiary/:_id?/:op?', function() {
-  //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
+
+Router.route('/beneficiary/:id?/:op?', function() {
+  //render project details or edit project / add project when both edit and id are missing
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
       //edit project
+      this.render('editBeneficiary', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     } else {
       //show project
+      this.render('showBeneficiary', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     }
   } else {
     //add project
+    this.render('addBeneficiary');
   }
 });
+
 
 Router.route('/lists', function() {
   //edit lists page (project types, project states, project financing categs, resource types)

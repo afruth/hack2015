@@ -26,7 +26,18 @@ Package.onUse(function(api) {
 
     'views/projects/addProject.html',
     'views/projects/showProject.html',
-    'views/projects/editProject.html'
+    'views/projects/editProject.html',
+
+    'views/beneficiary/addBeneficiary.html',
+    'views/beneficiary/showBeneficiary.html',
+    'views/beneficiary/editBeneficiary.html',
+
+    'views/task/addTask.html',
+    'views/task/showTask.html',
+    'views/task/editTask.html'
+
+
+
   ],'client');
 });
 
