@@ -1,13 +1,11 @@
-Meteor.publish('imagesForBeneficiary', function(bid) {
-  check(bid, String);
-  var beneficiary = DB.Beneficiaries.findOne(bid);
+Meteor.publish('imagesForBeneficiary', function(eid) {
+  check(eid, String);
 
-  if(beneficiary)
-    return DB.ImageStores.find({
-      _id: {
-        $in: beneficiary.images
-      }
-    });
+  return DB.ImageStores.find({
+    _id: {
+      $in: DB.Beneficiaries.findOne(eid).images
+    }
+  });
 });
 
 Meteor.publish('images', function() {
