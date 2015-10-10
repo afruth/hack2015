@@ -3,6 +3,18 @@ DB = {};
 
 DB.Beneficiaries = new Mongo.Collection('beneficiaries');
 
+DB.Beneficiaries.allow({
+  insert: function() {
+    return true;
+  },
+  update: function() {
+    return true;
+  },
+  remove: function() {
+    return true;
+  }
+});
+
 Schemas.BeneficiarySchema = new SimpleSchema({
   name: {
     type: String,

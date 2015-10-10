@@ -12,9 +12,9 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use('ecmascript');
+  api.use(['ecmascript','collections'],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform'],'client');
 
   api.addFiles('routes/routes.js','client');
 
@@ -42,6 +42,7 @@ Package.onUse(function(api) {
     'views/beneficiary/addBeneficiary.html',
     'views/beneficiary/showBeneficiary.html',
     'views/beneficiary/editBeneficiary.html',
+    'views/beneficiary/editBeneficiary.js',
 
     'views/task/addTask.html',
     'views/task/showTask.html',

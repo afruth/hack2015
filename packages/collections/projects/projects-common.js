@@ -1,6 +1,3 @@
-Schemas = {};
-DB = {};
-
 DB.Projects = new Mongo.Collection('projects');
 
 Schemas.ProjectSchema = new SimpleSchema({
