@@ -1,11 +1,17 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
-Router.route('/', function() {
-  this.render('home');
+Router.route('/', {
+  template: 'home',
+  layoutTemplate: 'homeLayout'
 });
 
 Router.route('/projects', function() {
   //render project lists. Subscriptions will happen at a template level
   this.render('listProjects');
+});
+
+Router.route('/login', function() {
+  //render project lists. Subscriptions will happen at a template level
+  this.render('login');
 });
 
 Router.route('/project/:id?/:op?', {
