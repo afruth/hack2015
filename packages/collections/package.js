@@ -22,7 +22,8 @@ Package.onUse(function(api) {
   ],['client','server']);
 
   api.addFiles([
-    'beneficiaries/publications.js'
+    'beneficiaries/publications.js',
+    'images/publications.js'
   ],'server');
 
 
