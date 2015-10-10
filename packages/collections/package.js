@@ -28,7 +28,9 @@ Package.onUse(function(api) {
     'donations/donations-common.js',
     'images/images-common.js',
     'projectTypes/projectTypes-common.js',
-
+    'projectStates/projectStates-common.js',
+    'financingCategs/financingCategories-common.js',
+    'resources/resources-common.js'
 
     //methods
     'users/userMethods.js'
