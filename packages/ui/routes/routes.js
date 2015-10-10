@@ -1,3 +1,4 @@
+
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
 Router.route('/', {
   template: 'home',
@@ -16,11 +17,12 @@ Router.route('/login', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
-    this.subscribe('projectTypes');
-    this.subscribe('projectStates');
+    //this.subscribe('projectTypes');
+    //this.subscribe('projectStates');
 
-    if(this.params.id)
-      this.subscribe('project',this.params.id);
+    if(this.params.id) {
+      this.subscribe('project', this.params.id);
+    }
     else
       this.subscribe('images');
   },
@@ -151,7 +153,9 @@ Router.route('/beneficiary/:id?/:op?', {
     if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
       this.subscribe('imagesForBeneficiary', this.params.id);
-    } 
+    } else {
+      this.subscribe('images');
+    }
   },
   action: function () {
     //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
