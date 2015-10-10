@@ -21,11 +21,11 @@ accounts-password
 accounts-ui
 aldeed:autoform
 aldeed:collection2
-flemay:semantic-ui
+semantic:ui
 dburles:google-maps
 matb33:collection-hooks
 dburles:collection-helpers
 juliancwirko:s-alert
-less
 hack-ui
 collections
+flemay:less-autoprefixer

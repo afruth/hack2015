@@ -14,7 +14,11 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
 
-  api.use(['iron:router','templating'],'client');
+  api.use([
+    'iron:router',
+    'templating',
+    'less'
+    ],'client');
 
   api.addFiles('routes/routes.js','client');
 
@@ -22,7 +26,23 @@ Package.onUse(function(api) {
   //views
   api.addFiles([
     'views/frontpage/index.html',
-    'views/frontpage/home.html'
+    'views/frontpage/footer.html',
+    'views/frontpage/footer_client.js',
+    'views/frontpage/header.html',
+    'views/frontpage/header_client.js',
+    'views/frontpage/main_body.html',
+    'views/frontpage/main_body_client.js',
+    'views/frontpage/home.html',
+    'views/frontpage/home_client.js',
+  ],'client');
+
+  // LESS
+  api.addAssets([
+    'views/frontpage/footer.less',
+    'views/frontpage/header.less',
+    'views/frontpage/main_body.less',
+    'views/frontpage/home.less',
+    'custom.semantic.json'
   ],'client');
 });
 
