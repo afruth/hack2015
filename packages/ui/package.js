@@ -16,7 +16,6 @@ Package.onUse(function(api) {
 
   api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'cfs:autoform@2.2.1'],'client');
 
-
   api.addFiles('routes/routes.js','client');
 
 
@@ -37,6 +36,9 @@ Package.onUse(function(api) {
     'views/projects/showProject.html',
     'views/projects/editProject.html',
     'views/projects/listProjects.html',
+    'views/projects/projectCard.html',
+    'views/projects/projectCard_client.js',
+
 
     'views/donation/donation.html',
     'views/donation/donation.js',
