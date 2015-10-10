@@ -14,7 +14,9 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use(['ecmascript','collections', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui@0.7.1'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui@0.7.1','less'],'client');
+
+
 
   api.addFiles('routes/routes.js','client');
 
@@ -36,6 +38,7 @@ Package.onUse(function(api) {
     'views/projects/showProject.html',
     'views/projects/editProject.html',
     'views/projects/listProjects.html',
+    'views/projects/editProject.js',
     'views/projects/projectCard.html',
     'views/projects/projectCard_client.js',
 

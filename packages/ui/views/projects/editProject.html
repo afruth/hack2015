@@ -1,1 +1,3 @@
-<template name="editProject">Edit this project</template>
+<template name="editProject">
+    {{> quickForm id="projectUpdate" collection="DB.Projects" doc=data type="update"}}
+</template>

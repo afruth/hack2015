@@ -10,7 +10,7 @@ Router.route('/projects', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
-    if(this.project.id)
+    if(this.params.id)
       this.subscribe('project',this.params.id);
   },
   action: function () {
@@ -20,14 +20,14 @@ Router.route('/project/:id?/:op?', {
         //edit project
         this.render('editProject', {
           data: function () {
-            //return Projects.findOne(this.params.id);
+            return DB.Projects.findOne(this.params.id);
           }
         });
       } else {
         //show project
         this.render('showProject', {
           data: function () {
-            //return Projects.findOne(this.params.id);
+            return DB.Projects.findOne(this.params.id);
           }
         });
       }
