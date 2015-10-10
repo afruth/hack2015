@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   api.use(['ecmascript','collections', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['server','client']);
 
 
-  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'yogiben:autoform-file@0.2.9', 'less'],'client');
 
 
   api.addFiles('routes/routes.js','client');
@@ -61,16 +61,14 @@ Package.onUse(function(api) {
 
     'views/task/addTask.html',
     'views/task/showTask.html',
-    'views/task/editTask.html'
-  ],'client');
+    'views/task/editTask.html',
 
- // LESS
-  api.addAssets([
     'views/frontpage/footer.less',
     'views/frontpage/header.less',
     'views/frontpage/main_body.less',
-    'views/frontpage/home.less',
+    'views/frontpage/home.less'
   ],'client');
+
 });
 
 Package.onTest(function(api) {
