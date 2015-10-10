@@ -58,7 +58,9 @@ Package.onUse(function(api) {
     'views/general/not-authorized.html',
     'views/general/not-found.html',
     'views/general/loading.html',
+
     'views/user/login.html',
+    'views/user/login.less',
 
     'views/beneficiary/addBeneficiary.html',
     'views/beneficiary/addBeneficiary.css',
