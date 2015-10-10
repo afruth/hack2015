@@ -81,14 +81,32 @@ Router.route('/user/:id/:op?', function() {
 
 Router.route('/task/:id?/:op?', function() {
   //render task page / edit task page / add task (when both edit and id are missing)
+
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
       //edit project
+      this.render('editTask', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     } else {
       //show project
+      this.render('showTask', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     }
   } else {
     //add project
+    this.render('addTask');
   }
 });
 
@@ -107,16 +125,35 @@ Router.route('/update/:id?/:op?', function() {
 
 Router.route('/beneficiary/:id?/:op?', function() {
   //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
+
   if (this.params.id) {
     if (this.params.op && this.params.op === 'edit') {
       //edit project
+      this.render('editBeneficiary', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     } else {
       //show project
+      this.render('showBeneficiary', {
+        data: function() {
+          //return Projects.findOne(this.params.id);
+        },
+        waitOn: function() {
+          //this.subscribe('project',this.params.id);
+        }
+      });
     }
   } else {
     //add project
+    this.render('addBeneficiary');
   }
 });
+
 
 Router.route('/lists', function() {
   //edit lists page (project types, project states, project financing categs, resource types)
