@@ -12,9 +12,12 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use(['ecmascript','collections'],['server','client']);
+  api.use(['ecmascript','collections', 'cfs:standard-packages@0.5.9', 'cfs:gridfs@0.0.33'],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router','aldeed:autoform'],'client');
+
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform@5.6.1', 'cfs:autoform@2.2.1'],'client');
+
+
 
   api.addFiles('routes/routes.js','client');
 
