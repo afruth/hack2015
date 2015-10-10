@@ -1,6 +1,7 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
-Router.route('/', function() {
-  this.render('home');
+Router.route('/', {
+  template: 'home',
+  layoutTemplate: 'homeLayout'
 });
 
 Router.route('/projects', function() {
@@ -8,8 +9,14 @@ Router.route('/projects', function() {
   this.render('listProjects');
 });
 
+Router.route('/login', function() {
+  //render project lists. Subscriptions will happen at a template level
+  this.render('login');
+});
+
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
+    this.subscribe('projectTypes');
     if(this.params.id)
       this.subscribe('project',this.params.id);
   },
@@ -140,7 +147,7 @@ Router.route('/beneficiary/:id?/:op?', {
     if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
       this.subscribe('imagesForBeneficiary', this.params.id);
-    }
+    } 
   },
   action: function () {
     //render beneficiary page / edit beneficiary / add beneficiary (when both edit and id are missing)
