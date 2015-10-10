@@ -41,7 +41,9 @@ Package.onUse(function(api) {
     'projects/publications.js',
     'images/publications.js',
     'projectTypes/publications.js',
-    'projectStates/publications.js'
+    'projectStates/publications.js',
+    'financingCategs/publications.js',
+    'resources/publications.js'
   ],'server');
 
 
