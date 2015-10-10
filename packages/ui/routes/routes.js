@@ -1,4 +1,5 @@
 Router.route('/', function() {
+  this.render('home');
 });
 
 Router.route('/projects', function() {

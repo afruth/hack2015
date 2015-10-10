@@ -14,9 +14,16 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
   api.use('ecmascript');
 
-  api.use('iron:router','client');
+  api.use(['iron:router','templating'],'client');
 
   api.addFiles('routes/routes.js','client');
+
+
+  //views
+  api.addFiles([
+    'views/frontpage/index.html',
+    'views/frontpage/home.html'
+  ],'client');
 });
 
 Package.onTest(function(api) {

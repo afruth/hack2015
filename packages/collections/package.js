@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.0.2');
-  api.use(['ecmascript','mongo'],['client','server']);
+  api.use(['ecmascript','mongo','aldeed:collection2'],['client','server']);
 
   api.addFiles([
     'beneficiaries/beneficiaries-common.js'
