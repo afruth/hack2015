@@ -30,4 +30,5 @@ hack-ui
 collections
 flemay:less-autoprefixer
 iron:layout
+fabienb4:autoform-semantic-ui
 yogiben:autoform-map
