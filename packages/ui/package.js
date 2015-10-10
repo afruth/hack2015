@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.use([
     'iron:router',
     'templating',
-    'less'
+    'semantic:ui'
     ],'client');
 
   api.addFiles('routes/routes.js','client');
@@ -42,7 +42,6 @@ Package.onUse(function(api) {
     'views/frontpage/header.less',
     'views/frontpage/main_body.less',
     'views/frontpage/home.less',
-    'custom.semantic.json'
   ],'client');
 });
 
