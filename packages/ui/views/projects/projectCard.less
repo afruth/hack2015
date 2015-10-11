@@ -1,0 +1,99 @@
+
+.project-card {
+  .image {
+    width: 100%;
+    height: 265px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .ui.cards > .card > .content > .header, 
+  .ui.card > .content > .header {
+    color: #573866;
+  }
+  .progress-goal {
+    float: right;
+    font-size: 14px;
+    color: #767b83;
+    span {
+      font-size: 18px;
+      color: #573866;
+    }
+  }
+  .progress-gain {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #767b83;
+    span {
+      font-size: 18px;
+      color: #a75265;
+    }
+  }
+  .progress-percent {
+    display: none;
+  }
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    height: 14px;
+    clear: both;
+    border-radius: 8px;
+    background-color: #cbd3e2;
+  }
+  .progress-bar__complete {
+    position: absolute;
+    height: 14px;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    background-color: #573866;
+  }
+  .progress-bar__caret {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -9px;
+    margin-left: -10px;
+    border-bottom: solid 6px #ec7263;
+    border-right: solid 5px transparent;
+    border-left: solid 5px transparent;
+  }
+}
+
+//  Progress card
+.main-body__progress {
+  .project-card {
+  
+    .ui.cards > .card > .content > .header, 
+    .ui.card > .content > .header {
+      color: #a75265;
+    }
+    .progress-goal {
+      display: none;
+    }
+    .progress-gain {
+      display: none;
+    }
+    .progress-percent {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #a75265;
+      span {
+        font-size: 18px;
+        color: #a75265;
+      }
+    }
+    .progress-bar {
+      background-color: #cbd3e2;
+    }
+    .progress-bar__complete {
+      background-color: #a75265;
+    }
+  }
+}
+
+
+
