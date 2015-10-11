@@ -35,7 +35,12 @@ Schemas.TaskSchema = new SimpleSchema({
   },
   description: {
     type: String,
-    label: 'Description'
+    label: 'Description',
+    autoform: {
+      afFieldInput: {
+        type: 'textarea'
+      }
+    }
   },
   resourcesVolunteers: {
     type: Number,
