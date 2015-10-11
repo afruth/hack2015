@@ -35,7 +35,9 @@ DB.Projects.helpers({
       neededAmount += t.resourcesFinancial
     });
 
-    return neededAmount;
+    if( !isNaN(neededAmount) )
+      return neededAmount;
+    return 0;
 
   },
   neededVolunteers: function() {
@@ -62,7 +64,9 @@ DB.Projects.helpers({
       neededAmount += t.allocatedFinancial
     });
 
-    return neededAmount;
+    if( !isNaN(neededAmount) )
+      return neededAmount;
+    return 0;
   },
   allocatedVolunteers: function() {
     var tasks = DB.Tasks.find({
@@ -89,5 +93,22 @@ DB.Projects.helpers({
     });
 
     return (tasks.length > 0)? totalDone * 100 / (tasks.length * 100): 100;
+  },
+  startDate: function() {
+    var tasks = DB.Tasks.find({
+      projectId: this._id
+    }).fetch();
+
+    var startDate = (new Date()).getTime() + 1000*60*60*24*500;
+
+    _.each(tasks, function(t) {
+      if( t.startDate.getTime() < startDate )
+        startDate = t.startDate.getTime();
+    });
+
+    //var returnStartDate = new Date();
+    //returnStartDate.setTime(startDate);
+
+    return startDate;
   }
 })

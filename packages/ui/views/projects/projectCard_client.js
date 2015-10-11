@@ -14,12 +14,14 @@ Template.projectCard.helpers({
 
   // TODO: Return funding gained
   fundingGained: function () {
-   return '1708';
+   return this.allocatedFunding();
   },
 
   // TODO: Returns start date, formatted "month day"
   startDate: function () {
-   return 'April 11';
+    var date = new Date();
+    date.setTime(this.startDate());
+   return  date.getDate()  + "." + (date.getMonth()+1) + "." + date.getYear();
   },
 
   fundingCompletePercentage: function() {
