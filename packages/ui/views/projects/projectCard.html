@@ -6,9 +6,24 @@
         <img src="{{imageObj.url}}" />
       </div> -->
       <div class="content">
+<<<<<<< HEAD
         <div class="meta">Started on {{startDate}}</div>
         <div class="header">{{name}}</div>
         <div class="description">{{description}}</div>
+=======
+        <div class="header">
+          {{name}}
+        </div>
+        <div class="meta">
+        </div>
+          <img src="{{imageObj.url}}" style="max-width: 100%;"/>
+          <div style="max-width: 100%; background-color: #a75265; height: 10pt">
+              <div style="max-width: {{fundingCompletePercentage}}%; background-color: #05A77A; height: 10pt; position:relative"></div>
+          </div>
+        <div class="description">
+            <b>{{allocatedFunding}}$</b> funded from <b>{{neededFunding}}$</b>
+        </div>
+>>>>>>> master
       </div>
       <div class="content">
         <div class="progress-goal"><span>${{fundingGoal}}</span> Goal</div>

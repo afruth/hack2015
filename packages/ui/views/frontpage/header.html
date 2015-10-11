@@ -11,6 +11,9 @@
     </div>
     
     <div class="ui text menu">
+        <a id="bits__header__account" class="item secondary {{#if currentUser}}logout{{else}}login{{/if}}">
+            {{#if currentUser}}logout{{else}}login{{/if}}
+        </a>
       <a id="bits__header__projects" class="item secondary">
         projects
       </a>

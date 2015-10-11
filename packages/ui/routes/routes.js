@@ -12,6 +12,7 @@ Router.route('/', {
   }
 });
 
+
 Router.route('/projects', {
   waitOn: function () {
     this.subscribe('projects');
@@ -30,7 +31,10 @@ Router.route('/projects', {
 
 Router.route('/login', function() {
   //render project lists. Subscriptions will happen at a template level
-  this.render('login');
+  if (!Meteor.user() || !Meteor.loggingIn())
+    this.render('login');
+  else
+    this.go('/');
 });
 
 Router.route('/project/:id?/:op?', {
@@ -78,10 +82,14 @@ Router.route('/project/:id?/:op?', {
 Router.route('/donation/:id?', {
   action: function () {
     //render donation page. Id is the project id
+    if(this.params.id) {
+      Session.set('projectId', this.params.id);
+    } else {
+      Session.set('projectId', null);
+    }
     this.render('donation', {
       data: function () {
-        return this.params.id
-        //return Projects.findOne(this.params.id)
+        return DB.Projects.findOne(this.params.id)
       }
     });
   },
@@ -125,7 +133,6 @@ Router.route('/tasks/:id?/:op?', {
   waitOn: function () {
     this.subscribe('resources');
     this.subscribe('financingCategories');
-    console.log(this.params, "xxxxxxxxxxxxx");
 
     if(this.params.id)
       this.subscribe('tasks',this.params.id);
@@ -155,7 +162,10 @@ Router.route('/tasks/:id?/:op?', {
       }
     } else {
       //add project
-      this.render('addTask');
+      if(Session.get('projectId'))
+        this.render('addTask');
+      else
+        this.render('notFound');
     }
   }
 });
@@ -217,3 +227,11 @@ Router.route('/lists/:list?', function() {
   //edit lists page (project types, project states, project financing categs, resource types)
 
 });
+
+Router.route('/thankyou', function() {
+  this.render('thankyou', {
+    data: function() {
+      return Session.get('projectId');
+    }
+  });
+})
