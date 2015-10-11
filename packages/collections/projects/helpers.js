@@ -35,7 +35,9 @@ DB.Projects.helpers({
       neededAmount += t.resourcesFinancial
     });
 
-    return neededAmount;
+    if( !isNaN(neededAmount) )
+      return neededAmount;
+    return 0;
 
   },
   neededVolunteers: function() {
@@ -62,7 +64,9 @@ DB.Projects.helpers({
       neededAmount += t.allocatedFinancial
     });
 
-    return neededAmount;
+    if( !isNaN(neededAmount) )
+      return neededAmount;
+    return 0;
   },
   allocatedVolunteers: function() {
     var tasks = DB.Tasks.find({
