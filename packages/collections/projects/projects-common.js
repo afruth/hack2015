@@ -122,7 +122,10 @@ Schemas.ProjectSchema = new SimpleSchema({
       afFieldInput: {
         type: "fileUpload",
         collection: "imageStore",
-        accept: 'image/*'
+        accept: 'image/*',
+        onAfterUpload: function(e,r) {
+          if(e) throw new Meteor.Error(e);
+        }
       }
     }
   },
