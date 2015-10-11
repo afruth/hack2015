@@ -1,5 +1,6 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
 
+
 Router.route('/', {
   waitOn: function () {
     this.subscribe('projects');
@@ -14,6 +15,10 @@ Router.route('/', {
 
 
 Router.route('/projects', {
+  onBeforeAction: function() {
+    GoogleMaps.load();
+    this.next();
+  },
   waitOn: function () {
     this.subscribe('projects');
  //   this.subscribe('images');
@@ -38,6 +43,12 @@ Router.route('/login', function() {
 });
 
 Router.route('/project/:id?/:op?', {
+  onBeforeAction: function() {
+    if (this.params.id || this.params.op !== 'edit')
+      GoogleMaps.load();
+
+    this.next();
+  },
   waitOn: function () {
     this.subscribe('projectTypes');
     this.subscribe('projectStates');

@@ -25,7 +25,12 @@ Schemas.ProjectSchema = new SimpleSchema({
   },
   description: {
     type: String,
-    label: 'Description'
+    label: 'Description',
+    autoform: {
+      afFieldInput: {
+        type: 'textarea'
+      }
+    }
   },
   projType: {
     type: String,
@@ -117,7 +122,10 @@ Schemas.ProjectSchema = new SimpleSchema({
       afFieldInput: {
         type: "fileUpload",
         collection: "imageStore",
-        accept: 'image/*'
+        accept: 'image/*',
+        onAfterUpload: function(e,r) {
+          if(e) throw new Meteor.Error(e);
+        }
       }
     }
   },

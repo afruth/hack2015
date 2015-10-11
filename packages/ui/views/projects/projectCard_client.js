@@ -37,3 +37,9 @@ Template.projectCard.helpers({
   }
 
 });
+
+Template.projectCard.events({
+  'click div.card.project-card': function() {
+    Router.go('/project/' + this._id);
+  }
+})

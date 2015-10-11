@@ -33,6 +33,9 @@
 
         <img style="max-width:100%;" src="{{imageObj.url}}" />
         <br>
+        <div class="map-container">
+            {{> googleMap name="projectMap" options=mapOptions}}
+        </div>
 
         <div class="ui hidden divider"></div>
         
@@ -84,10 +87,6 @@
                 <tr>
                   <td>Status</td>
                   <td>{{statusDone}}</td>
-                </tr>
-                <tr>
-                  <td>Blog entry</td>
-                  <td>{{blogEntry}}</td>
                 </tr>
             </tbody>
         </table>
