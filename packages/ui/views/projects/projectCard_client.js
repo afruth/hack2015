@@ -1,16 +1,16 @@
 Template.projectCard.helpers({
 
-  // TODO: return project's progress percent
-  // Should be funding for funding status projects
-  // Should be progress for progress status projects
-  progressPercent: function () {
-   return '58';
-  },
+  // // TODO: return project's progress percent
+  // // Should be funding for funding status projects
+  // // Should be progress for progress status projects
+  // progressPercent: function () {
+  //  return '58';
+  // },
 
-  // TODO: Return funding goal
-  fundingGoal: function () {
-   return '2500';
-  },
+  // // TODO: Return funding goal
+  // fundingGoal: function () {
+  //  return '2500';
+  // },
 
   // TODO: Return funding gained
   fundingGained: function () {
