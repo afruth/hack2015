@@ -1,10 +1,17 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
-Router.route('/', function() {
-  Session.set('projectId', null);
-  this.render('home');
-},
-  {name: 'home'}
-);
+
+Router.route('/', {
+  waitOn: function () {
+    this.subscribe('projects');
+    this.subscribe('projectStates');
+  },
+  name: 'home',
+  action: function () {
+    //render project overview
+    this.render('home');
+  }
+});
+
 
 Router.route('/projects', {
   waitOn: function () {
