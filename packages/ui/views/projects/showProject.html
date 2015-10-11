@@ -1,4 +1,13 @@
 <template name="showProject">
+<<<<<<< HEAD
+    <div class="ui container raised segment bits__account">
+        <a class="massive ui green button" href="/donation/{{_id}}">Donate</a>
+        <h2>
+            Project {{name}}
+        </h2>
+        {{#if isInRole 'superAdmin'}}
+            <a class="massive ui blue button" href="/project/{{_id}}/edit">Edit project</a>
+=======
     <div class="ui container raised segment bits__project">
         <h2 class='ui header'>
             Project {{name}}
@@ -8,6 +17,7 @@
                 <i class="icon pencil"></i>
                 Edit
             </a>
+>>>>>>> master
         {{/if}}
         <div class="ui divider"></div>
         <p>{{description}}</p>

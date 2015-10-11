@@ -1,3 +1,7 @@
+SimpleSchema.messages({
+  'tooManyVolunteers': "You have allocated more volunteers than you need.",
+  'tooMuchMoney': "You are going over the needed budget."
+})
 DB.Tasks = new Mongo.Collection('tasks');
 
 DB.Tasks.allow({
@@ -35,11 +39,48 @@ Schemas.TaskSchema = new SimpleSchema({
   },
   resourcesVolunteers: {
     type: Number,
-    label: 'Resources - Volunteers'
+    label: 'Needed Resources - Volunteers',
+    defaultValue:0,
+    min: 0
+  },
+  allocatedVolunteers: {
+    type:Number,
+    label: 'Allocated Resources - volunteers',
+    defaultValue: 0,
+    min: 0,
+    custom: function() {
+      if(this.value > this.field('resourcesVolunteers').value)
+        return "tooManyVolunteers"
+    }
+  },
+  allocatedFinancial: {
+    type:Number,
+    label: 'Allocated Resources - financial',
+    defaultValue:0,
+    min: 0,
+    custom: function() {
+      if(this.value > this.field('resourcesFinancial').value)
+        return "tooMuchMoney"
+
+      var project = DB.Projects.findOne({
+        _id: this.field('projectId').value
+      });
+
+      if(this.docId) {
+        var task = DB.Tasks.findOne(this.docId);
+        if(project && project.allocatedFinancial < this.value - task.allocatedFinancial)
+          return 'not enough funds';
+      }
+      else
+        if(project && project.allocatedFinancial < this.value)
+          return 'not enough funds'
+    }
   },
   resourcesFinancial: {
     type: Number,
-    label: 'Resources - Financial'
+    label: 'Needed Resources - Financial',
+    defaultValue:0,
+    min: 0
   },
   startDate: {
     type: Date,
@@ -69,14 +110,17 @@ Schemas.TaskSchema = new SimpleSchema({
     //  //}
     //}
   },
-  statusDone:{
+  statusDone: {
     type: Number,
-    label: "Status in Percentage"
+    label: "Status in Percentage",
+    min: 0,
+    max: 100
   },
-  blogEntry: {
-    type: String,
-    label: 'Blog Entry ID'
-  }
+  //blogEntry: {
+  //  type: String,
+  //  label: 'Blog Entry ID',
+  //  optional:true
+  //}
 });
 
 DB.Tasks.attachSchema(Schemas.TaskSchema);
