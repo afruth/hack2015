@@ -19,3 +19,7 @@ Meteor.publishComposite('beneficiary', function(beneficiaryId) {
     ]
   }
 });
+
+Meteor.publish('beneficiaries', function() {
+  return DB.Beneficiaries.find();
+})

@@ -67,7 +67,17 @@ Schemas.ProjectSchema = new SimpleSchema({
 
   beneficiary: {
     type: String,
-    label: 'Beneficiary'
+    label: 'Beneficiary',
+    autoform: {
+      options: function() {
+        return DB.Beneficiaries.find().map(function(b) {
+          return {
+            label: b.name,
+            value: b._id
+          }
+        })
+      }
+    }
   },
   tasks: {
     type: [String],
