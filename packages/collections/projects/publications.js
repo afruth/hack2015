@@ -36,5 +36,23 @@ Meteor.publishComposite('project', function(projectId) {
         }
       ]
     }
+});
 
+
+Meteor.publishComposite('projects', function() {
+  return {
+    find: function() {
+      return DB.Projects.find();
+    },
+    children: [
+      {
+        find: function(project) {
+          console.log(project);
+          return DB.ImageStores.find({
+            _id: project.image || null
+          });
+        }
+      }
+    ]
+  }
 });

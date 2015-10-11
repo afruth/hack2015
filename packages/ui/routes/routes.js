@@ -5,10 +5,21 @@ Router.route('/', {
   layoutTemplate: 'homeLayout'
 });
 
-Router.route('/projects', function() {
-  //render project lists. Subscriptions will happen at a template level
-  this.render('listProjects');
+Router.route('/projects', {
+  waitOn: function () {
+    this.subscribe('projects');
+ //   this.subscribe('images');
+  },
+  action: function () {
+    //render project overview
+    this.render('listProjects', {
+      data: function () {
+        return DB.Projects.find();
+      }
+    });
+  }
 });
+
 
 Router.route('/login', function() {
   //render project lists. Subscriptions will happen at a template level
