@@ -12,6 +12,7 @@ Router.route('/', {
   }
 });
 
+
 Router.route('/projects', {
   waitOn: function () {
     this.subscribe('projects');
@@ -30,7 +31,10 @@ Router.route('/projects', {
 
 Router.route('/login', function() {
   //render project lists. Subscriptions will happen at a template level
-  this.render('login');
+  if (!Meteor.user() || !Meteor.loggingIn())
+    this.render('login');
+  else
+    this.go('/');
 });
 
 Router.route('/project/:id?/:op?', {
