@@ -1,21 +1,46 @@
 <template name="showProject">
-    <div class="ui container raised segment bits__account">
-        <h2>
+    <div class="ui container raised segment bits__project">
+        <h2 class='ui header'>
             Project {{name}}
         </h2>
         {{#if isInRole 'superAdmin'}}
-            <a class="massive ui green button" href="/project/{{_id}}/edit">Edit project</a>
+            <a class="ui basic button bits__project__edit" href="/project/{{_id}}/edit">
+                <i class="icon pencil"></i>
+                Edit
+            </a>
         {{/if}}
-        {{description}}<br>
-        {{projectType.projectType}}<br>
-        {{projectState.name}}<br>
-        {{beneficiaryObj.name}}<br>
-        <img style="max-width:100%;" src="{{imageObj.url}}" /><br>
+        <div class="ui divider"></div>
+        <p>{{description}}</p>
+
+        <table class="ui definition unstackable table">
+            <tbody>
+                <tr>
+                  <td>Project Type</td>
+                  <td>{{projectType.projectType}}</td>
+                </tr>
+                <tr>
+                  <td>Project State</td>
+                  <td>{{projectState.name}}</td>
+                </tr>
+                <tr>
+                  <td>Beneficiary</td>
+                  <td>{{beneficiaryObj.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <img style="max-width:100%;" src="{{imageObj.url}}" />
+        <br>
+
+        <div class="ui hidden divider"></div>
+        
         {{#if isInRole 'superAdmin'}}
-            <a class="massive ui red button" href="/tasks">Add a task</a><br>
+            <a class="ui button secondary" href="/tasks">Add a task</a><br>
+            <div class="ui hidden divider"></div>
         {{/if}}
         {{#each tasks}}
-            {{name}}<br>
+         <!--    {{name}}<br>
             {{description}}<br>
             {{resourcesVolunteers}}<br>
             {{resourcesFinancial}}<br>
@@ -27,7 +52,52 @@
             {{#if isInRole 'superAdmin'}}
                 <a class="mini ui yellow button editTask">Edit</a><br>
                 <a class="mini ui red button deleteTask">Delete</a><br>
-            {{/if}}
+            {{/if}} -->
+        
+        <div class="ui raised very padded text container segment">
+          <div class="content">
+            <h4 class="header">{{name}}</h4>
+            <div class="description">{{description}}</div>
+            <table class="ui definition unstackable table">
+            <tbody>
+                <tr>
+                  <td>Volunteers</td>
+                  <td>{{resourcesVolunteers}}</td>
+                </tr>
+                <tr>
+                  <td>Finiancial</td>
+                  <td>{{resourcesFinancial}}</td>
+                </tr>
+                <tr>
+                  <td>Start Date</td>
+                  <td>{{startDate}}</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td>{{durationInDays}}</td>
+                </tr>
+                <tr>
+                  <td>End Date</td>
+                  <td>{{endDate}}</td>
+                </tr>
+                <tr>
+                  <td>Status</td>
+                  <td>{{statusDone}}</td>
+                </tr>
+                <tr>
+                  <td>Blog entry</td>
+                  <td>{{blogEntry}}</td>
+                </tr>
+            </tbody>
+        </table>
+          </div>
+          {{#if isInRole 'superAdmin'}}
+            <div class="ui divider"></div>
+            <a class="ui secondary button editTask">Edit</a>
+            <a class="ui primary button deleteTask">Delete</a>
+          {{/if}}
+        </div>
+
         {{/each}}
     </div>
 </template>

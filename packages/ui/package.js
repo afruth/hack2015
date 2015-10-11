@@ -57,6 +57,7 @@ Package.onUse(function(api) {
     'views/projects/addProject.html',
     'views/projects/addProject.js',
     'views/projects/showProject.html',
+    'views/projects/showProject.less',
     'views/projects/showProject.js',
     'views/projects/editProject.html',
     'views/projects/listProjects.html',
