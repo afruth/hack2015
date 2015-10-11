@@ -1,7 +1,6 @@
 .bits__header {
   padding: 30px 30px 20px;
   margin-bottom: 30px;
-  background-color: #a6d2e6;
   .ui.header {
     font-size: 30px;
     text-transform: lowercase;
@@ -9,4 +8,42 @@
     color: #ffffff;
     letter-spacing: 0.0625em;
   }
+  .ui.text.menu {
+    float: right;
+    margin: 0;
+    // For the navigation text
+    .item {
+      color: #a75265;
+      text-transform: lowercase;
+      font-variant: small-caps;
+      letter-spacing: 0.0625em;
+      transition: color 350ms ease-out 50ms, background-color 350ms ease-out 50ms, opacity 350ms ease-out 50ms;
+    }
+    .item:hover {
+      color: darken( #a75265, 10% );
+    }
+    .item.button {
+      display: inline-block;
+      width: 170px;
+      height: 45px;
+      margin: 0 30px;
+      padding-top: 15px;
+      background-color: #a75265;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .item.button:hover {
+      background-color: darken( #a75265, 10% );
+    }
+  }
 }
+
+
+
+
+
+
+
+

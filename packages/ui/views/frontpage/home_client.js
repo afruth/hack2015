@@ -10,3 +10,11 @@ Template.home.helpers({
   }
 
 });
+
+
+// *************** homeLayout Template  *****************
+
+Template.homeLayout.helpers({
+  
+
+});
