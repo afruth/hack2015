@@ -1,9 +1,15 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
-Router.route('/', function() {
-  this.render('home');
-},
-  {name: 'home'}
-);
+
+Router.route('/', {
+  waitOn: function () {
+    this.subscribe('projects');
+    this.subscribe('projectStates');
+  },
+  action: function () {
+    //render project overview
+    this.render('home');
+    }
+});
 
 Router.route('/projects', {
   waitOn: function () {

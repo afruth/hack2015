@@ -7,7 +7,7 @@
           <h4 class="ui header main-body__col-header">Funding Open</h4>
           <div class="ui link cards">
           {{#each frontPageProjectsFundingOpen}}
-            {{> project}}
+            {{> projectCard}}
           {{/each}}
 
             
@@ -19,7 +19,7 @@
           <div class="ui link cards">
 
             {{#each frontPageProjectsInProgress}}
-              {{> project}}
+              {{> projectCard}}
             {{/each}}
 
           
@@ -30,7 +30,7 @@
           <h4 class="ui header main-body__col-header">Completed Projects</h4>
           <div class="ui link cards">
           {{#each frontPageProjectsCompleted}}
-            {{> project}}
+            {{> projectCard}}
           {{/each}}
 
            
