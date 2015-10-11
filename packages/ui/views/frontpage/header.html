@@ -1,10 +1,24 @@
 <template name="header">
 
-  <div class="bits__header">
-    <h1 class="ui header">{{orgName}}</h1>
-    <div class="breadcrumbs">
-      
+  <div class="bits__header {{isHome}}">
+    <div id="bits__header__logo" class="bits__header__logo" >
+      <div class="ui tiny image">
+        <img src="../../../../images/logo_mark.png">
+      </div>
+      <div class="ui small image">
+        <img src="../../../../images/nepalSupport.svg">
+      </div>
     </div>
-  </div>
+    
+    <div class="ui text menu">
+      <a id="bits__header__projects" class="item secondary">
+        projects
+      </a>
+      <a id="bits__header__donate" class="item ui button primary">
+        donate
+      </a>
+    </div>
   
+  </div>
+
 </template>
