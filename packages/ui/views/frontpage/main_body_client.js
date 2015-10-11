@@ -46,17 +46,17 @@ Template.mainBody.helpers({
   
   // TODO: Returns the number of projects that are in the funding stage - 3
   fundingProjects: function () {
-    return Counts.get('funding') - 3;
+    return Math.max(0,Counts.get('funding') - 3);
   },
   
   // TODO: Returns the number of projects that are in the progress stage - 3
   progressProjects: function () {
-    return Counts.get('running') - 3;
+    return Math.max(0,Counts.get('running') - 3);
   },
   
   // TODO: Returns the number of projects that are in the completed stage - 2
   completedProjects: function () {
-    return Counts.get('finished') - 3;
+    return Math.max(0,Counts.get('finished') - 3);
   }
 });
 
