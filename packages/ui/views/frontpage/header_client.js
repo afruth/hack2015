@@ -1,8 +1,12 @@
 Template.header.helpers({
   
-  // TODO: Return Organization's Name
-  orgName: function(){
-    return "Nepal Support";
+  // returns 'home' if the current route is home
+  isHome: function(){
+    var routeName = Router.current().route.getName();
+    console.log( routeName )
+    if( routeName === 'home' ){
+      return "home";
+    }
   }
   
 });
