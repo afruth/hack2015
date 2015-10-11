@@ -1,6 +1,12 @@
 <template name="listProjects">
-    {{#each data}}
-            {{> projectCard}}
-        {{name}}
-    {{/each}}
+
+  <div class="ui container">
+    <div class="ui link three cards">
+      {{#each data}}
+        {{> projectCard}}
+      {{/each}}
+      <div class="ui hidden clearing divider"></div>
+    </div>
+  </div>
+
 </template>

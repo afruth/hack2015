@@ -44,4 +44,18 @@ Template.mainBody.helpers({
     return DB.Projects.find({state:idTyp._id}).count();
   },
   
+  // TODO: Returns the number of projects that are in the funding stage - 3
+  fundingProjects: function () {
+    
+  },
+  
+  // TODO: Returns the number of projects that are in the progress stage - 3
+  progressProjects: function () {
+
+  },
+  
+  // TODO: Returns the number of projects that are in the completed stage - 2
+  completedProjects: function () {
+
+  }
 })
