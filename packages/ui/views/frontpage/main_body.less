@@ -1,18 +1,48 @@
 .main-body {
-  padding-bottom: 40px;
   // column headers
-  .main-body__col-header.ui.header {
+  .main-body__col-header {
+    display: block;
+    margin: 55px 0 50px;
     font-size: 18px;
-    text-transform: lowercase;
-    font-variant: small-caps;
-    letter-spacing: 0.0625em;
-    text-align: center;
+    text-align: left;
+    color: #372340;
+    span {
+      font-size: 14px;
+      color: #a75265;
+      text-decoration: underline;
+    }
   }
   @media (max-width: 992px){
     .main-body__col-header.ui.header {
       min-height: 45px;
     }
   }  
+
+  .main-body__funding {
+    padding: 55px 0;
+  }
+  .main-body__progress {
+    padding: 55px 0;
+    background-color: #fff;
+  }
+  .main-body__complete {
+    padding-bottom: 180px;
+    padding-top: 55px;
+    background-color: #a75265;
+    h3.ui.header {
+      text-align: center;
+      color: #fff;
+      font-size: 30px;
+      letter-spacing: 0.0625em;
+    }
+    .main-body__col-header {
+      text-align: center;
+      color: #febe7e;
+      span {
+        color: #febe7e;
+      }
+    }
+  }
 }
 
 .main-body__donate {

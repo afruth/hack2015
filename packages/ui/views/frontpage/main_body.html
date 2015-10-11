@@ -1,46 +1,80 @@
 <template name="mainBody">
   
-<div class="ui container">
-  <div class="ui grid main-body">
-    <div class="sixteen wide column stackable">
-      <!-- <div class="ui grid"> -->
-        <!-- <div class="five wide column stackable"> -->
-          <h4 class="ui header main-body__col-header">Funding Open</h4>
-          <div class="ui link cards">
+  <div class="main-body">
+    <div class="main-body__funding">
+      <div class="ui container">
+        <a class="main-body__col-header">
+          Projects Currently in Need of Funding 
+          <i class="right angle icon divider"></i>
+          <span>See {{fundingProjects}} More</span>
+        </a>
+        <div class="ui link three cards">
           {{#each frontPageProjectsFundingOpen}}
             {{> projectCard}}
           {{/each}}
-
-            
-
-          </div>
         </div>
-        <div class="five wide column stackable">
-          <h4 class="ui header main-body__col-header">Projects in Progress</h4>
-          <div class="ui link cards">
+      </div>
+    </div>
 
-            {{#each frontPageProjectsInProgress}}
-              {{> projectCard}}
-            {{/each}}
-
-          
-          </div>
+    <div class="main-body__progress">
+      <div class="ui container">
+        <a class="main-body__col-header">
+          Projects in Progress
+          <i class="right angle icon divider"></i>
+          <span>See {{progressProjects}} More</span>
+        </a>
+        <div class="ui link three cards">
+          {{#each frontPageProjectsInProgress}}
+            {{> projectCard}}
+          {{/each}}
         </div>
+      </div>
+    </div>
 
-        <div class="five wide column stackable">
-          <h4 class="ui header main-body__col-header">Completed Projects</h4>
-          <div class="ui link cards">
+    <div class="main-body__complete">
+      <div class="ui container">
+        <h3 class="ui header">Explore what we've accomplished together.</h3>
+        <a class="main-body__col-header">
+          Completed Projects
+          <i class="right angle icon divider"></i>
+          <span>See {{completedProjects}} More</span>
+        </a>
+        <div class="ui link three cards">
           {{#each frontPageProjectsCompleted}}
             {{> projectCard}}
           {{/each}}
-
-           
-
-          </div>
-        <!-- </div> -->
-      <!-- </div> -->
+        </div>
+      </div>
     </div>
+    
+  </div>
 
+    
+
+  <div class="main-body__donate">
+    <div class="main-body__donate-box">
+      <div class="ui tiny image">
+        <img src="../../../../images/logo_mark.png">
+      </div>
+      <br>
+      <div class="ui small image">
+        <img src="../../../../images/nepalSupport.svg">
+      </div>
+      <h3 class="ui header">Donate to Our Organization</h3>
+      <p>With your help, we’re able to grow our family of volunteers, generate awareness, &amp; explore new life-renewing initiatives. We couldn’t do it without you.</p>
+      <a class="ui primary button" href="/donation">
+        Donate Now
+      </a>
+    </div>
+    <div class="main-body__donate-social-box">
+      <img id='main-body__donate-social__twitter' class="ui mini image" src="../../../../images/twitter.svg" />
+      <img id='main-body__donate-social__linkedin' class="ui mini image" src="../../../../images/linkedin.svg" />
+      <img id='main-body__donate-social__facebook' class="ui mini image" src="../../../../images/facebook.svg" />
+      <img id='main-body__donate-social__google' class="ui mini image" src="../../../../images/google.svg" />
+    </div>
+  </div>
+
+</template>
     <!-- 
     <div class="four wide column stackable">
       <div class="ui link cards">
@@ -155,31 +189,3 @@
 
       </div>
     </div> -->
-    
-  </div>
-</div>
-
-  <div class="main-body__donate">
-    <div class="main-body__donate-box">
-      <div class="ui tiny image">
-        <img src="../../../../images/logo_mark.png">
-      </div>
-      <br>
-      <div class="ui small image">
-        <img src="../../../../images/nepalSupport.svg">
-      </div>
-      <h3 class="ui header">Donate to Our Organization</h3>
-      <p>With your help, we’re able to grow our family of volunteers, generate awareness, &amp; explore new life-renewing initiatives. We couldn’t do it without you.</p>
-      <a class="ui primary button" href="/donation">
-        Donate Now
-      </a>
-    </div>
-    <div class="main-body__donate-social-box">
-      <img id='main-body__donate-social__twitter' class="ui mini image" src="../../../../images/twitter.svg" />
-      <img id='main-body__donate-social__linkedin' class="ui mini image" src="../../../../images/linkedin.svg" />
-      <img id='main-body__donate-social__facebook' class="ui mini image" src="../../../../images/facebook.svg" />
-      <img id='main-body__donate-social__google' class="ui mini image" src="../../../../images/google.svg" />
-    </div>
-  </div>
-
-</template>
