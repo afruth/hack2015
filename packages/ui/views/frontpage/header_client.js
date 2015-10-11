@@ -24,7 +24,20 @@ Template.header.events({
     Router.go( '/projects' );
   },
   'click #bits__header__donate': function(){
-    Router.go( '/donation' );
+    if(Session.get('projectId'))
+      Router.go( '/donation/' + Session.get('projectId') );
+    else
+      Router.go( '/donation' );
+  },
+  'click .logout': function(event) {
+    event.preventDefault();
+
+    Meteor.logout();
+  },
+  'click .login': function(event) {
+    event.preventDefault();
+
+    Router.go('/login');
   }
   
 });

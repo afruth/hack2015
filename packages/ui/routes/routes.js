@@ -1,5 +1,6 @@
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
 Router.route('/', function() {
+  Session.set('projectId', null);
   this.render('home');
 },
   {name: 'home'}
@@ -23,7 +24,10 @@ Router.route('/projects', {
 
 Router.route('/login', function() {
   //render project lists. Subscriptions will happen at a template level
-  this.render('login');
+  if (!Meteor.user() || !Meteor.loggingIn())
+    this.render('login');
+  else
+    this.go('/');
 });
 
 Router.route('/project/:id?/:op?', {
