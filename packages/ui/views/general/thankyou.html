@@ -1,0 +1,13 @@
+<template name="thankyou">
+    <div class="ui container raised segment bits__account">
+        <h2>Thank you very much!</h2>
+        <p>You donation is much appreciated.</p>
+        <div>
+            {{#if this}}
+                <a href="/project/{{this}}" class="medium ui green button">Go back to the project</a>
+            {{else}}
+                <a href="/" class="medium ui green button">To the front page</a>
+            {{/if}}
+        </div>
+    </div>
+</template>
