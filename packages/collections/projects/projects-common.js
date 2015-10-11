@@ -1,3 +1,6 @@
+SimpleSchema.messages({
+  'not enough funds': 'You dont have enough available funds'
+})
 DB.Projects = new Mongo.Collection('projects');
 
 DB.Projects.allow({
@@ -117,6 +120,31 @@ Schemas.ProjectSchema = new SimpleSchema({
         accept: 'image/*'
       }
     }
+  },
+  allocatedFinancial: {
+    type: Number,
+    label: function() {
+      return 'Finances allocated to this project'
+    },
+    defaultValue: 0,
+    min: 0,
+    custom: function() {
+      if (this.operator !== '$inc') {
+        var org = DB.Organization.findOne();
+        if (this.docId) {
+          var documentInDB = DB.Projects.findOne(this.docId);
+          if (org && org.availableFundsToSpend < this.value - documentInDB.allocatedFinancial)
+            return 'not enough funds';
+        } else if (org && org.availableFundsToSpend < this.value)
+          return 'not enough funds';
+      }
+    }
+  },
+  allocatedVolunteers: {
+    type: Number,
+    label: 'Volunteers allocated to this project',
+    defaultValue: 0,
+    min: 0
   }
 });
 

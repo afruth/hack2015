@@ -1,7 +1,19 @@
 <template name="donation">
-    {{#if data}}
-        This is a donation for project with id {{data}}
-    {{else}}
-        This is a general donation
-    {{/if}}
+    <div class="ui container raised segment bits__account">
+        {{#if name}}
+            <h2>Donate for project {{name}}</h2>
+        {{else}}
+            <h2>Donate</h2>
+        {{/if}}
+        <p>Thank you for your kind donation, it enables us to keep doing good deeds.</p>
+            {{#autoForm id="donation" collection="DB.Donations" type="insert" doc=formdata}}
+                    {{> afQuickField name='amount'}}
+                    {{> afQuickField name='project'}}
+
+                    {{> afQuickField name='message'}}
+                    {{> afQuickField name='public'}}
+
+                <button type="submit" class="medium ui red button">Donate</button>
+            {{/autoForm}}
+    </div>
 </template>

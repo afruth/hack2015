@@ -19,11 +19,11 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 iron:router@1.0.12
 accounts-password
 accounts-ui
+matb33:collection-hooks@0.7.15
 aldeed:autoform
 aldeed:collection2
 semantic:ui
 dburles:google-maps
-matb33:collection-hooks
 dburles:collection-helpers
 juliancwirko:s-alert
 hack-ui
