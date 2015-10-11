@@ -23,6 +23,7 @@ Router.route('/project/:id?/:op?', {
 
     if(this.params.id) {
       this.subscribe('project', this.params.id);
+      Session.setPersistent('projectId', this.params.id);
     }
     else
       this.subscribe('images');
@@ -110,6 +111,9 @@ Router.route('/tasks/:id?/:op?', {
 
     if(this.params.id)
       this.subscribe('tasks',this.params.id);
+
+    if(Session.get('projectId'))
+      this.subscribe('project',Session.get('projectId'));
   },
   action: function () {
     //render tasks page / edit tasks page / add tasks (when both edit and id are missing)
