@@ -1,9 +1,9 @@
-
 Router.configure({ layoutTemplate: 'layout', notFoundTemplate: 'notFound', loadingTemplate: 'loading'});
-Router.route('/', {
-  template: 'home',
-  layoutTemplate: 'homeLayout'
-});
+Router.route('/', function() {
+  this.render('home');
+},
+  {name: 'home'}
+);
 
 Router.route('/projects', function() {
   //render project lists. Subscriptions will happen at a template level
