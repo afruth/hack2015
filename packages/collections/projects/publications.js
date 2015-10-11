@@ -14,16 +14,13 @@ Meteor.publishComposite('project', function(projectId) {
             });
           }
         },
-        //{
-        //  find: function(project) {
-        //    console.log('child2')
-        //    return DB.Tasks.find({
-        //      _id: {
-        //        $in: project.tasks
-        //      }
-        //    });
-        //  }
-        //},
+        {
+          find: function(project) {
+            return DB.Tasks.find({
+              projectId: project._id
+            });
+          }
+        },
       ]
     }
 

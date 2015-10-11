@@ -1,1 +1,33 @@
-<template name="showProject">Show a project</template>
+<template name="showProject">
+    <div class="ui container raised segment bits__account">
+        <h2>
+            Project {{name}}
+        </h2>
+        {{#if isInRole 'superAdmin'}}
+            <a class="massive ui green button" href="/project/{{_id}}/edit">Edit project</a>
+        {{/if}}
+        {{description}}<br>
+        {{projectType.projectType}}<br>
+        {{projectState.name}}<br>
+        {{beneficiaryObj.name}}<br>
+        <img style="max-width:100%;" src="{{imageObj.url}}" /><br>
+        {{#if isInRole 'superAdmin'}}
+            <a class="massive ui red button" href="/tasks">Add a task</a><br>
+        {{/if}}
+        {{#each tasks}}
+            {{name}}<br>
+            {{description}}<br>
+            {{resourcesVolunteers}}<br>
+            {{resourcesFinancial}}<br>
+            {{startDate}}<br>
+            {{durationInDays}}<br>
+            {{endDate}}<br>
+            {{statusDone}}<br>
+            {{blogEntry}}<br>
+            {{#if isInRole 'superAdmin'}}
+                <a class="mini ui yellow button editTask">Edit</a><br>
+                <a class="mini ui red button deleteTask">Delete</a><br>
+            {{/if}}
+        {{/each}}
+    </div>
+</template>
