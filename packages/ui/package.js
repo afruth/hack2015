@@ -64,6 +64,7 @@ Package.onUse(function(api) {
     'views/projects/listProjects.js',
     'views/projects/editProject.js',
     'views/projects/projectCard.html',
+    'views/projects/projectCard.less',
     'views/projects/projectCard_client.js',
     //'views/projects/projects.html',
 

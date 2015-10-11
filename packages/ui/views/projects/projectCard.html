@@ -1,21 +1,25 @@
 <template name="projectCard">
 
-    <div class="card">
+    <div class="card project-card">
+      <div class="image" style="background-image: url({{imageObj.url}})"></div>
+ <!--      <div class="image">
+        <img src="{{imageObj.url}}" />
+      </div> -->
       <div class="content">
-        <div class="header">
-          {{name}}
-        </div>
-        <div class="meta">
-        </div>
-          <img src="{{imageObj.url}}" style="max-width: 100%;"/>
-
-        <div class="description">
-          Pledge $1.00 or more per month
-        </div>
+        <div class="meta">Started on {{startDate}}</div>
+        <div class="header">{{name}}</div>
+        <div class="description">{{description}}</div>
       </div>
-      <div class="extra content">
-          <p>{{description}}</p>
+      <div class="content">
+        <div class="progress-goal"><span>${{fundingGoal}}</span> Goal</div>
+        <div class="progress-bar">
+          <div class="progress-bar__complete" style="width:{{progressPercent}}%"></div>
+          <div class="progress-bar__caret" style="left:{{progressPercent}}%"></div>
+        </div>
+        <div class="progress-gain"><span>${{fundingGained}}</span> Funded</div>
+        <div class="progress-percent"><span>{{progressPercent}}%</span> Complete</div>
       </div>
     </div>
 
 </template>
+
