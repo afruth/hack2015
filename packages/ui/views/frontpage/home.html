@@ -1,11 +1,23 @@
-<template name="home">
-<!-- this is the home template --> 
-  
 
-  <div class="home__main ui container">
-    <div class="home__main__project-description">
-      {{projectDescription}}
+<template name="home">
+<!-- this is the special home template --> 
+  
+  
+  <div class="home__banner">
+    <div class="home__main__banner-box">
+      <div class="home__main__banner-tagline">
+        Creating brighter futures, one child at a time.
+      </div>
+      <div class="home__main__banner-description">
+        Nepal Support creates education and support opportunities for Nepalize families with young children.
+      </div>
+      <button id="home__main__banner-btn" class="ui primary button">
+        Explore Project to Fund
+      </button>
     </div>
+  </div>
+  
+  <div class="home__main ui container">
     {{> mainBody}}
   </div>
 

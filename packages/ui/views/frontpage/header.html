@@ -1,10 +1,21 @@
 <template name="header">
 
-  <div class="bits__header">
-    <h1 class="ui header">{{orgName}}</h1>
-    <div class="breadcrumbs">
-      
+  <div class="bits__header {{isHome}}">
+    <!-- <h1 class="ui header">{{orgName}}</h1> -->
+    <div id="bits__header__logo" class="ui small image">
+      <!-- // logo goes here -->
+      <p>remove this</p>
     </div>
-  </div>
+    
+    <div class="ui text menu">
+      <a id="bits__header__projects" class="item secondary">
+        projects
+      </a>
+      <a id="bits__header__donate" class="item ui button primary">
+        donate
+      </a>
+    </div>
   
+  </div>
+
 </template>

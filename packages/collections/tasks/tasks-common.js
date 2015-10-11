@@ -1,13 +1,16 @@
 DB.Tasks = new Mongo.Collection('tasks');
 
 DB.Tasks.allow({
-  insert: function() {
+  insert: function(userId, doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  update: function() {
+  update: function(userId,doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  remove: function() {
+  remove: function(userId) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   }
 });
@@ -31,7 +34,7 @@ Schemas.TaskSchema = new SimpleSchema({
     label: 'Description'
   },
   resourcesVolunteers: {
-    type: String,
+    type: Number,
     label: 'Resources - Volunteers'
   },
   resourcesFinancial: {

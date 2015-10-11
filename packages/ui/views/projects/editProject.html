@@ -1,5 +1,7 @@
 <template name="editProject">
   <div class="ui container raised segment bits__account">
+    <h1 class="ui header">Edit Project</h1>
+    <p>Remember to add a project image and a location on the map.</p>
     {{> quickForm id="projectUpdate" collection="DB.Projects" doc=data type="update"}}
   </div>
 </template>
