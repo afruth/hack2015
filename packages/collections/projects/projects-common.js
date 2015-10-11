@@ -1,13 +1,16 @@
 DB.Projects = new Mongo.Collection('projects');
 
 DB.Projects.allow({
-  insert: function() {
+  insert: function(userId, doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  update: function() {
+  update: function(userId,doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  remove: function() {
+  remove: function(userId) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   }
 });
@@ -64,7 +67,17 @@ Schemas.ProjectSchema = new SimpleSchema({
 
   beneficiary: {
     type: String,
-    label: 'Beneficiary'
+    label: 'Beneficiary',
+    autoform: {
+      options: function() {
+        return DB.Beneficiaries.find().map(function(b) {
+          return {
+            label: b.name,
+            value: b._id
+          }
+        })
+      }
+    }
   },
   tasks: {
     type: [String],

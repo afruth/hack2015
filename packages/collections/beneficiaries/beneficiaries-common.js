@@ -22,7 +22,12 @@ Schemas.BeneficiarySchema = new SimpleSchema({
   },
   description: {
     type: String,
-    label: 'Description'
+    label: 'Description',
+    autoform: {
+      afFieldInput: {
+        type: 'textarea'
+      }
+    }
   },
   images: {
     type: [String],
@@ -34,10 +39,7 @@ Schemas.BeneficiarySchema = new SimpleSchema({
       afFieldInput: {
         type: "fileUpload",
         collection: "imageStore",
-        accept: 'image/*',
-        onBeforeInsert: function(fileObj) {
-          fileObj.entity = this.template.data._id || '';
-        }
+        accept: 'image/*'
       }
     }
   }

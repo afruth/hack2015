@@ -17,8 +17,9 @@ Router.route('/login', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
-    //this.subscribe('projectTypes');
-    //this.subscribe('projectStates');
+    this.subscribe('projectTypes');
+    this.subscribe('projectStates');
+    this.subscribe('beneficiaries');
 
     if(this.params.id) {
       this.subscribe('project', this.params.id);
@@ -30,12 +31,14 @@ Router.route('/project/:id?/:op?', {
     //render project details or edit project / add project when both edit and id are missing
     if (this.params.id) {
       if (this.params.op && this.params.op === 'edit') {
+        if (!Roles.userIsInRole(Meteor.userId(),['superAdmin'])) this.render('notAuthorized');
         //edit project
-        this.render('editProject', {
-          data: function () {
-            return DB.Projects.findOne(this.params.id);
-          }
-        });
+        else
+          this.render('editProject', {
+            data: function () {
+              return DB.Projects.findOne(this.params.id);
+            }
+          });
       } else {
         //show project
         this.render('showProject', {
@@ -46,7 +49,9 @@ Router.route('/project/:id?/:op?', {
       }
     } else {
       //add project
-      this.render('addProject');
+      if (!Roles.userIsInRole(Meteor.userId(),['superAdmin'])) this.render('notAuthorized');
+      else
+        this.render('addProject');
     }
   }
 });
@@ -152,7 +157,6 @@ Router.route('/beneficiary/:id?/:op?', {
   waitOn: function () {
     if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
-      this.subscribe('imagesForBeneficiary', this.params.id);
     } else {
       this.subscribe('images');
     }
