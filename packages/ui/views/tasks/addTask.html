@@ -1,0 +1,7 @@
+<template name="addTask">
+    <div class="ui container raised segment bits__account">
+        <h2>Add task</h2>
+        <h3>Project: {{projectName}}</h3>
+        {{> quickForm id="tasks" collection="DB.Tasks" type="insert"}}
+    </div>
+</template>

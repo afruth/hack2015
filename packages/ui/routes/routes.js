@@ -17,11 +17,13 @@ Router.route('/login', function() {
 
 Router.route('/project/:id?/:op?', {
   waitOn: function () {
-    //this.subscribe('projectTypes');
-    //this.subscribe('projectStates');
+    this.subscribe('projectTypes');
+    this.subscribe('projectStates');
+    this.subscribe('beneficiaries');
 
     if(this.params.id) {
       this.subscribe('project', this.params.id);
+      Session.setPersistent('projectId', this.params.id);
     }
     else
       this.subscribe('images');
@@ -30,12 +32,14 @@ Router.route('/project/:id?/:op?', {
     //render project details or edit project / add project when both edit and id are missing
     if (this.params.id) {
       if (this.params.op && this.params.op === 'edit') {
+        if (!Roles.userIsInRole(Meteor.userId(),['superAdmin'])) this.render('notAuthorized');
         //edit project
-        this.render('editProject', {
-          data: function () {
-            return DB.Projects.findOne(this.params.id);
-          }
-        });
+        else
+          this.render('editProject', {
+            data: function () {
+              return DB.Projects.findOne(this.params.id);
+            }
+          });
       } else {
         //show project
         this.render('showProject', {
@@ -46,7 +50,9 @@ Router.route('/project/:id?/:op?', {
       }
     } else {
       //add project
-      this.render('addProject');
+      if (!Roles.userIsInRole(Meteor.userId(),['superAdmin'])) this.render('notAuthorized');
+      else
+        this.render('addProject');
     }
   }
 });
@@ -96,26 +102,36 @@ Router.route('/user/:id/:op?', {
   }
 });
 
-Router.route('/task/:id?/:op?', {
+Router.route('/tasks/:id?/:op?', {
+
+  waitOn: function () {
+    this.subscribe('resources');
+    this.subscribe('financingCategories');
+    console.log(this.params, "xxxxxxxxxxxxx");
+
+    if(this.params.id)
+      this.subscribe('tasks',this.params.id);
+
+    if(Session.get('projectId'))
+      this.subscribe('project',Session.get('projectId'));
+  },
   action: function () {
-    //render task page / edit task page / add task (when both edit and id are missing)
+    //render tasks page / edit tasks page / add tasks (when both edit and id are missing)
 
     if (this.params.id) {
       if (this.params.op && this.params.op === 'edit') {
         //edit project
         this.render('editTask', {
           data: function () {
-            //return Projects.findOne(this.params.id);
-          },
-          waitOn: function () {
-            //this.subscribe('project',this.params.id);
+            return DB.Tasks.findOne(this.params.id);
           }
+
         });
       } else {
         //show project
         this.render('showTask', {
           data: function () {
-            //return Projects.findOne(this.params.id);
+            return DB.Tasks.findOne(this.params.id);
           }
         });
       }
@@ -123,9 +139,6 @@ Router.route('/task/:id?/:op?', {
       //add project
       this.render('addTask');
     }
-  },
-  waitOn: function () {
-    if (this.params.id) this.subscribe('project',this.params.id);
   }
 });
 
@@ -152,7 +165,6 @@ Router.route('/beneficiary/:id?/:op?', {
   waitOn: function () {
     if (this.params.id) {
       this.subscribe('beneficiary', this.params.id);
-      this.subscribe('imagesForBeneficiary', this.params.id);
     } else {
       this.subscribe('images');
     }

@@ -19,7 +19,8 @@ Package.onUse(function(api) {
     'check',
     'cfs:standard-packages@0.5.9',
     'cfs:gridfs@0.0.33',
-    'alanning:roles@1.2.4'
+    'alanning:roles@1.2.4',
+    'session'
   ],['client','server']);
 
   api.use([
@@ -29,12 +30,14 @@ Package.onUse(function(api) {
   api.addFiles([
     'beneficiaries/beneficiaries-common.js',
     'projects/projects-common.js',
+    'tasks/tasks-common.js',
     'donations/donations-common.js',
     'images/images-common.js',
     'projectTypes/projectTypes-common.js',
     'projectStates/projectStates-common.js',
     'financingCategs/financingCategories-common.js',
     'resources/resources-common.js',
+    'tasks/helpers.js',
 
     //methods
     'users/userMethods.js',
@@ -44,6 +47,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'beneficiaries/publications.js',
     'projects/publications.js',
+    'tasks/publications.js',
     'images/publications.js',
     'projectTypes/publications.js',
     'projectStates/publications.js',

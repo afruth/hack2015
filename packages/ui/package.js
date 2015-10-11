@@ -21,10 +21,11 @@ Package.onUse(function(api) {
     'useraccounts:core',
     'useraccounts:semantic-ui',
     'alanning:roles@1.2.4',
-    'yogiben:autoform-map@0.2.0'
+    'yogiben:autoform-map@0.2.0',
+    'session'
   ],['server','client']);
 
-  api.use(['templating','iron:layout','iron:router','aldeed:autoform', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui','less'],'client');
+  api.use(['templating','iron:layout','iron:router','aldeed:autoform', 'yogiben:autoform-file@0.2.9', 'fabienb4:autoform-semantic-ui','less','u2622:persistent-session@0.4.3'],'client');
 
 
   api.addFiles('routes/routes.js','client');
@@ -42,6 +43,16 @@ Package.onUse(function(api) {
     'views/frontpage/footer_client.js',
     'views/frontpage/home.html',
     'views/frontpage/home_client.js',
+
+
+    'views/tasks/showTask.html',
+    'views/tasks/editTask.html',
+    'views/tasks/listTask.html',
+    'views/tasks/editTask.js',
+    'views/tasks/addTask.html',
+    'views/tasks/addTask.js',
+    'views/tasks/taskCard.html',
+    'views/tasks/taskCard_client.js',
 
     'views/projects/addProject.html',
     'views/projects/showProject.html',
@@ -71,10 +82,6 @@ Package.onUse(function(api) {
     'views/beneficiary/showBeneficiary.js',
     'views/beneficiary/editBeneficiary.html',
     'views/beneficiary/editBeneficiary.js',
-
-    'views/task/addTask.html',
-    'views/task/showTask.html',
-    'views/task/editTask.html',
 
     'views/frontpage/footer.less',
     'views/frontpage/header.less',

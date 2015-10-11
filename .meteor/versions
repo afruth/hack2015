@@ -6,6 +6,7 @@ alanning:roles@1.2.14
 aldeed:autoform@5.6.1
 aldeed:collection2@2.3.1
 aldeed:simple-schema@1.1.0
+amplify@1.0.0
 autoupdate@1.2.3
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -117,6 +118,7 @@ standard-minifiers@1.0.1
 templating@1.1.4
 templating-tools@1.0.0
 tracker@1.0.9
+u2622:persistent-session@0.4.3
 ui@1.0.8
 underscore@1.0.4
 url@1.0.5
