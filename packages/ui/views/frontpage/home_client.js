@@ -1,4 +1,4 @@
-Meteor.startup(() => {
+Meteor.startup(function() {
   AutoForm.setDefaultTemplate("semanticUI");
 });
 
