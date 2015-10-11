@@ -5,10 +5,11 @@ Router.route('/', {
     this.subscribe('projects');
     this.subscribe('projectStates');
   },
+  name: 'home',
   action: function () {
     //render project overview
     this.render('home');
-    }
+  }
 });
 
 Router.route('/projects', {
