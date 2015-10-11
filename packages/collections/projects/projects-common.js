@@ -1,13 +1,16 @@
 DB.Projects = new Mongo.Collection('projects');
 
 DB.Projects.allow({
-  insert: function() {
+  insert: function(userId, doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  update: function() {
+  update: function(userId,doc) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   },
-  remove: function() {
+  remove: function(userId) {
+    if (!Roles.userIsInRole(userId,['superAdmin'])) return false;
     return true;
   }
 });

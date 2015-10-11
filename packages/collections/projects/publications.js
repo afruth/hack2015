@@ -10,7 +10,7 @@ Meteor.publishComposite('project', function(projectId) {
         {
           find: function(project) {
             return DB.ImageStores.find({
-              _id: project.image
+              _id: project.image || null
             });
           }
         },
@@ -24,16 +24,6 @@ Meteor.publishComposite('project', function(projectId) {
         //    });
         //  }
         //},
-        {
-          find: function() {
-            return DB.ProjectStates.find();
-          }
-        },
-        {
-          find: function() {
-            return DB.ProjectTypes.find();
-          }
-        }
       ]
     }
 
