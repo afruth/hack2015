@@ -19,7 +19,8 @@ Package.onUse(function(api) {
     'check',
     'cfs:standard-packages@0.5.9',
     'cfs:gridfs@0.0.33',
-    'alanning:roles@1.2.4'
+    'alanning:roles@1.2.4',
+    'session'
   ],['client','server']);
 
   api.use([
@@ -36,6 +37,7 @@ Package.onUse(function(api) {
     'projectStates/projectStates-common.js',
     'financingCategs/financingCategories-common.js',
     'resources/resources-common.js',
+    'tasks/helpers.js',
 
     //methods
     'users/userMethods.js',
