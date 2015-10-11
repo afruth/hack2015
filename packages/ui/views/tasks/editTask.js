@@ -5,17 +5,10 @@ Template.editTask.helpers({
 });
 
 
-var addProjectToTaskHook = {
-  before: {
-    insert: function(doc){
-      doc.projectId = Session.get("projectId");
-      console.log(doc);
-      return doc;
-    }
-  },
+var editTaskHook = {
   onSuccess: function() {
-    Router.go('/project/' + Session.get('projectId') + '/edit');
+    Router.go('/project/' + Session.get('projectId'));
   }
 };
 
-AutoForm.addHooks(['tasks'],addProjectToTaskHook);
+AutoForm.addHooks(['taskUpdate'],editTaskHook);

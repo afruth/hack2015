@@ -38,6 +38,7 @@ Package.onUse(function(api) {
     'financingCategs/financingCategories-common.js',
     'resources/resources-common.js',
     'tasks/helpers.js',
+    'projects/helpers.js',
 
     //methods
     'users/userMethods.js',

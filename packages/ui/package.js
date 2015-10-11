@@ -55,7 +55,9 @@ Package.onUse(function(api) {
     'views/tasks/taskCard_client.js',
 
     'views/projects/addProject.html',
+    'views/projects/addProject.js',
     'views/projects/showProject.html',
+    'views/projects/showProject.js',
     'views/projects/editProject.html',
     'views/projects/listProjects.html',
     'views/projects/editProject.js',
