@@ -25,7 +25,12 @@ Schemas.ProjectSchema = new SimpleSchema({
   },
   description: {
     type: String,
-    label: 'Description'
+    label: 'Description',
+    autoform: {
+      afFieldInput: {
+        type: 'textarea'
+      }
+    }
   },
   projType: {
     type: String,
