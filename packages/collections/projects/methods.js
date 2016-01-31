@@ -4,7 +4,7 @@ Meteor.methods({
       {projectType: 'Building projects'},
       {projectType: 'Education sponsorship'},
       {projectType: 'Local business'},
-      {projectType: 'Trade help'}
+      {projectType: 'Local Trade help'}
     ];
 
     var projectStatuses = [

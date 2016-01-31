@@ -1,0 +1,7 @@
+{
+	"ROOT_URL": "http://nepal.golemdigital.at:8085",
+	"PORT":8085,
+  "public": {
+
+  }
+}
